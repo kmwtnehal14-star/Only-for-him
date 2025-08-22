@@ -2,85 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry My Love ❤️</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom right, #ff4d6d, #ffffff);
+      color: #333;
       margin: 0;
       padding: 0;
-      text-align: center;
-      color: #fff;
+      overflow-x: hidden;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-top: 30px;
+      color: #d1004d;
+      margin-top: 20px;
     }
     .card {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 25px;
-      margin: 30px auto;
+      background: white;
       border-radius: 20px;
-      width: 85%;
-      max-width: 700px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
     }
     .hearts {
-      font-size: 2rem;
-      animation: pulse 1s infinite alternate;
+      font-size: 30px;
+      color: red;
     }
-    @keyframes pulse {
-      from { transform: scale(1); }
-      to { transform: scale(1.3); }
+    .game {
+      margin-top: 20px;
     }
-    audio {
-      margin-top: 15px;
+    button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d1004d;
+    }
+    /* Falling Hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 24px;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-
-  <h1>❤️ For My Love Uttkarsh ❤️</h1>
-
+  <h1>Sorry My Love ❤️</h1>
   <div class="card">
-    <h2>Sorry Note 🥺</h2>
-    <p>
-      I'm really sorry Uttkarsh. I know it was my mistake, I shouldn't have said that. 
-      But trust me, I never meant it that way. I'm so sorry my love 🥹.  
-      I promise from today onwards it won’t happen again, not even in my mind.  
-      I love you so much, my baby ❤️🫂🧿
-    </p>
-    <div class="hearts">❤️❤️❤️</div>
+    <p>I'm really sorry Uttkarsh 😔 I know it was my fault, I shouldn’t have said that. But trust me, I never meant it. I promise from today, I’ll never say such things again 🥹. Please forgive me, my love ❤️</p>
   </div>
 
   <div class="card">
     <h2>🎶 Our Song 🎶</h2>
-    <p>Dil Ka Jo Haal Hai – From Besharam 🎵</p>
+    <p>Dil Ka Jo Haal Hai (Besharam Movie)</p>
     <audio controls>
-      <source src="https://pagalsong.in/uploads/systemuploads/mp3/Besharam/Dil%20Ka%20Jo%20Haal%20Hai%20-%20Besharam%20128%20Kbps.mp3" type="audio/mpeg">
+      <source src="https://pagalfree.com/musics/128-Dil%20Ka%20Jo%20Haal%20Hai%20-%20Besharam%20128%20Kbps.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
   </div>
 
-  <div class="card">
-    <h2>💖 Fun Game 💖</h2>
-    <p>Can you find the hidden heart? 🫶</p>
-    <p>🌸💫🌟💝✨💌💕💓❤️💖💞</p>
+  <div class="card game">
+    <h2>💖 Find the Hidden Heart 💖</h2>
+    <p>Click the button to find a surprise!</p>
+    <button onclick="findHeart()">Find Heart</button>
+    <p id="result"></p>
   </div>
 
   <div class="card">
-    <h2>Last Message 🥰</h2>
-    <p>
-      I really love you Uttkarsh. I know sometimes I get angry and say things I don’t mean.  
-      But honestly, I felt very bad that day. I swear I won’t say such things again.  
-      I promise! I love you my baby, I really really love you ❤️😚
-    </p>
-    <div class="hearts">💖💖💖</div>
+    <p>I really love you Uttkarsh 🥰. Kabhi kabhiii gussa ho jati hu aur kuch bhi bol deti hu, but I swear aaj ke baad aisa nahi hoga 🥹.  
+    You are my everything ❤️ I love you my baby! 😘</p>
   </div>
 
+  <script>
+    // Game
+    function findHeart() {
+      document.getElementById("result").innerHTML = "❤️ You found my heart, and it's only yours forever ❤️";
+    }
+
+    // Falling hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
 </body>
 </html>
